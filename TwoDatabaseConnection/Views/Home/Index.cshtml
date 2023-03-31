@@ -1,0 +1,66 @@
+﻿@model dynamic
+@{
+    Layout = null;
+    var show = ViewBag.msg;
+}
+<style>
+    table {
+        padding: 5px;
+        margin-top: 5px;
+    }
+    th, td {
+        border: 1px solid black;
+    }
+    tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    tbody tr:nth-child(even) {
+        background-color: #eee;
+    }
+    #employeeSearchResult {
+        margin-top: 10px;
+        margin-right: 10px;
+        border: 1px solid black;
+        width: 400px;
+    }
+</style>
+
+@Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div>
+    <label>Enter the name</label>
+    <input type="text" id="txtSearchEmployee" value="" />
+    <button id="btnSearch">Search</button>
+</div>
+<script>
+    var url = '@Url.Action("GetEmployeeDetails", "Home")';
+    $('#btnSearch').click(function () {
+        $('#employeeSearchResult').load(url, { name: $('#txtSearchEmployee').val()});
+    });
+</script>
+
+<table style=" border-collapse: collapse;">
+    <thead style="border: 1px solid black;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Manager</th>
+            <th>Salar</th>
+        </tr>
+    </thead>
+    <tbody style="border: 1px solid black;">
+        @foreach (var result in show)
+        {
+            <tr>
+                <td>@result.Name</td>
+                <td>@result.Email</td>
+                <td>@result.Department</td>
+                <td>@result.Manager</td>
+                <td>@result.Salary</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="employeeSearchResult"></div>
+

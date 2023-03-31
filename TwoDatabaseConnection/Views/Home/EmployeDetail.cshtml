@@ -1,0 +1,35 @@
+﻿@model TwoDatabaseConnection.Models.FinalModel
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />  
+   
+
+
+
+    <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayNameFor(model => model.Name) :
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Email) :
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.Department) :
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt>            
+        </dt>
+        <dd>
+            @Html.DisplayNameFor(model => model.Manager) :
+            @Html.DisplayFor(model => model.Manager)
+        </dd>                 
+        <dd>
+            @Html.DisplayNameFor(model => model.Salary) :
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+    </dl>
+</div>
+
